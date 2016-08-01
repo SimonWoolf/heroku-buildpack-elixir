@@ -41,6 +41,11 @@ function load_config() {
   output_line "* Stack ${STACK}"
   output_line "* Erlang ${erlang_version}"
   output_line "* Elixir ${elixir_version[0]} ${elixir_version[1]}"
+  output_line "* Runtime path ${runtime_path}"
+  output_line "* Build path ${build_path}"
+  output_line "* Cache path ${cache_path}"
+  output_line "* Mix backup path $(mix_backup_path)"
+  output_line "* HOME ${HOME}"
   output_line "Will export the following config vars:"
   output_line "* Config vars ${config_vars_to_export[*]}"
 }

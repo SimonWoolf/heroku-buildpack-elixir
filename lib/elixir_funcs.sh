@@ -66,18 +66,23 @@ function clean_elixir_downloads() {
 
 function restore_mix() {
   if [ -d $(mix_backup_path) ]; then
+    output_line "* Copying $(mix_backup_path) to ${HOME}/.mix"
     cp -pR $(mix_backup_path) ${HOME}/.mix
   fi
 
   if [ -d $(hex_backup_path) ]; then
+    output_line "* Copying $(hex_backup_path) to ${HOME}/.hex"
     cp -pR $(hex_backup_path) ${HOME}/.hex
   fi
 }
 
 function backup_mix() {
   # Delete the previous backups
+  output_line "* Deleting $(hex_backup_path) and $(hex_backup_path)"
   rm -rf $(mix_backup_path) $(hex_backup_path)
 
+  output_line "* Copying ${HOME}/.mix to $(mix_backup_path)"
+  output_line "* Copying ${HOME}/.hex to $(hex_backup_path)"
   cp -pR ${HOME}/.mix $(mix_backup_path)
   cp -pR ${HOME}/.hex $(hex_backup_path)
 }
